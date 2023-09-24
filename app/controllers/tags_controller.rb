@@ -15,7 +15,6 @@ class TagsController < ApplicationController
     # POST /tags
     def create
       @tag = Tag.new(tag_params)
-  
       if @tag.save
         render json: @tag, status: :created, location: @tag
       else
@@ -48,4 +47,3 @@ class TagsController < ApplicationController
         params.require(:tag).permit(:name)
       end
   end
-end
