@@ -33,6 +33,9 @@ RSpec.describe TagsController, type: :controller do
 
       it "renders a JSON response with the new tag" do
         post :create, params: { tag: valid_attributes }
+
+        puts JSON.pretty_generate(JSON.parse(response.body))
+
         expect(response).to have_http_status(:created)
         expect(response.content_type).to match(a_string_including("application/json"))
       end
